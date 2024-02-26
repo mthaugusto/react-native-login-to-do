@@ -112,12 +112,12 @@ export default function Todo() {
   };
 
   return (
-    <ImageBackground
-      source={require("./assets/background-login.webp")}
-      style={styles.background}
-    >
-      <View style={styles.container}>
-        <PaperProvider>
+    <PaperProvider>
+      <ImageBackground
+        source={require("./assets/background-login.webp")}
+        style={styles.background}
+      >
+        <View style={styles.container}>
           <Text style={styles.greeting}>Olá, usuário</Text>
           <Text style={styles.subtitle}>O que você tem que fazer hoje?</Text>
           <View style={styles.inputContainer}>
@@ -164,9 +164,9 @@ export default function Todo() {
               </TouchableOpacity>
             </Modal>
           </Portal>
-        </PaperProvider>
-      </View>
-    </ImageBackground>
+        </View>
+      </ImageBackground>
+    </PaperProvider>
   );
 }
 
