@@ -86,9 +86,12 @@ export default function Todo() {
   };
 
   const editarTarefa = (id) => {
-    showModal();
-    setTextoEditado(tarefa[id].texto);
-    setEditandoId(id);
+    const tarefaParaEditar = tarefa.find((item) => item.id === id);
+    if (tarefaParaEditar) {
+      showModal();
+      setTextoEditado(tarefaParaEditar.texto);
+      setEditandoId(id);
+    }
   };
 
   const confirmarEdicaoTarefa = () => {
@@ -101,7 +104,7 @@ export default function Todo() {
           break;
         }
       }
-      setTarefa([...tarefa]); // Atualizando a lista de tarefas
+      setTarefa([...tarefa]);
       setTextoEditado("");
       setEditandoId(null);
       hideModal();
@@ -141,9 +144,10 @@ export default function Todo() {
               visible={visible}
               onDismiss={hideModal}
               contentContainerStyle={{
-                backgroundColor: "white",
+                backgroundColor: "rgba(255,255,255,0.9)",
                 alignItems: "center",
                 padding: 50,
+                borderRadius: 15,
               }}
             >
               <TextInput
